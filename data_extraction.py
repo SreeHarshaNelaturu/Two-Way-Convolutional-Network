@@ -3,7 +3,7 @@ import os
 import cv2
 import numpy as np
 import pickle
-
+#This code allows for significant sub sampling of the dataset for multiplicative training data.
 '''
 path = 'F:\Leisure\TV Series\Mr.Robot\Season 2\Mr.Robot.S02E01.720p.WEBRip.AAC2.0.H.264-KNiTTiNG[ettv]'
 
@@ -11,9 +11,9 @@ files = [i for i in os.listdir(path) if os.path.isfile(os.path.join(path,i)) and
 #print(files)
 '''
 
-path_ann = "" # path of annotations
-path_vid = "" # path of videos
-path_pickle = "" #path where pickles are stored
+path_ann = "" # Write the path of the folder which contains the files with text file of start and end frames
+path_vid = "" # path of the videos to be extracted
+path_pickle = "" #path of the folder where pickles are stored
 
 ann_data = os.listdir(path_ann) #list of files in path_ann
 
@@ -40,7 +40,7 @@ for data in ann_data:
         t1 = int(words[0]) #first frame
         t2 = int(words[1]) #last frame
         m = t1
-        n = m + 7
+        n = m + 24
         while n <= t2:
             pic = []
             for i in range(m,n):
@@ -50,14 +50,13 @@ for data in ann_data:
                 cap.set(1,i) 
                 ret, frm = cap.read() 
                 gray = cv2.cvtColor(frm, cv2.COLOR_BGR2GRAY)
-                gray = cv2.resize(gray, (720, 720))
+                gray = cv2.resize(gray, (224, 224))
                 pic.append(gray)
                 A = np.array(pic)
                 #saves in path_pickle
                 #I havent classified pickles according to lables yet, will do once this works
-                with open(path_pickle, "wb") as f:
-                   pickle.dump(A, f)    
-            m = m + 1
-            n = m + 7
+                 pickle.dump(A, open(path_pickle + "/" + str(counter) + ".p", "wb"))    
+            m = m + 24
+            n = m + 168
         cap.release()
 

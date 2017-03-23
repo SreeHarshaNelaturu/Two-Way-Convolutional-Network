@@ -90,15 +90,15 @@ model.add(Dense(4096, activation='relu'))
 
 #FullyConnectedLayer7
 model.add(Dropout(0.9))
-model.add(Dense(2048, activation='softmax'))
+model.add(Dense(2048, activation='relu'))
 
 #FullyConnectedLayer8
 model.add(Dropout(0.9))
-model.add(Dense(1048, activation='softmax'))
+model.add(Dense(1048, activation='relu'))
 
 #FullyConnectedLayer9
 model.add(Dropout(0.9))
-model.add(Dense(100, activation='softmax'))
+model.add(Dense(100, activation='relu'))
 
 #FullyConnectedLayer10
 model.add(Dropout(0.9))
@@ -107,10 +107,10 @@ model.add(Dense(3, activation='softmax'))
 
 
 ada = Adadelta(lr=0.1, rho=0.95, epsilon=1e-08, decay=0.0)
-model.compile(loss="sparse_categorical_crossentropy", optimizer='Adadelta', metrics=['accuracy'])
+model.compile(loss="categorical_crossentropy", optimizer='Adadelta', metrics=['accuracy'])
 
 x_train = np.array(x_train)
-y_train = y_train.reshape((-1, 1))
+#y_train = y_train.reshape((-1, 1))
 for i in range(1, 10):
     model.fit(x_train, y_train, batch_size=batch_size, epochs=10, shuffle=True)
     model.save("F:/smackdown/"+"iteration_"+str(i)+".h5")

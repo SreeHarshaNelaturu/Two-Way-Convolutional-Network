@@ -84,24 +84,16 @@ model.add(Activation('relu'))
 model.add(MaxPooling2D(pool_size=(2, 2)))
 
 #FulllyConnectedlLayer6
-model.add(Dropout(0.9))
+model.add(Flatten())
 model.add(Dense(4096, activation='relu'))
+model.add(Dropout(0.9))
 
 
 #FullyConnectedLayer7
-model.add(Dropout(0.9))
 model.add(Dense(2048, activation='relu'))
+model.add(Dropout(0.9))
 
 #FullyConnectedLayer8
-model.add(Dropout(0.9))
-model.add(Dense(1048, activation='relu'))
-
-#FullyConnectedLayer9
-model.add(Dropout(0.9))
-model.add(Dense(100, activation='relu'))
-
-#FullyConnectedLayer10
-model.add(Dropout(0.9))
 model.add(Dense(3, activation='softmax'))
 
 

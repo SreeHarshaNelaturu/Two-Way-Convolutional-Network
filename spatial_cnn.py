@@ -9,6 +9,8 @@ from imagenet_utils import preprocess_input
 from keras.models import load_model
 import numpy as np
 import os
+import cv2
+import h5py
 
 #for all frames in one video
 def get_frame(fname, category):

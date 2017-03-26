@@ -59,4 +59,4 @@ top_model.compile(optimizer='Adadelta',
               metrics=['accuracy'])
 
 top_model.fit( x_train, y_train, batch_size=256, epochs=50,validation_split=0.0, validation_data=None, shuffle=True, class_weight=None, sample_weight=None, initial_epoch=0)
-top_model.save('spatial_cnn.h5)
+top_model.save_weights('spatial_cnn.h5')

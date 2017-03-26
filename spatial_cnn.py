@@ -24,19 +24,19 @@ def get_frame(fname, category):
  return arr1
 
 cat=["carcrash", "fight", "gun"]
-X_train=[]
-Y_train=[]
+X=[]
+y_train=[]
 
 for cat in category:
  for file in os.listdir("./"+category)[:1]:
   temp=[]
   temp=get_frame(file,cat)
-  X_train.append(temp)
+  X.append(temp)
 
 
 #building the base vgg model such that features are extracted using the vggmodel. till the end of the convulution layers
 base_model=VGG16(weights='imagenet', include_top=False)
-x=preprocess_input(x)
+x=preprocess_input(X)
 
 features=base_model.predict(x)
 np.save(open('features.npy', 'w'),features)
@@ -59,4 +59,4 @@ top_model.compile(optimizer='Adadelta',
               metrics=['accuracy'])
 
 top_model.fit( x_train, y_train, batch_size=256, epochs=50,validation_split=0.0, validation_data=None, shuffle=True, class_weight=None, sample_weight=None, initial_epoch=0)
-top_model.save_weights('spatial_cnn.h5')
+top_model.save('spatial_cnn.h5')

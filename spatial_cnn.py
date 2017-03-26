@@ -1,7 +1,7 @@
 """
 spatial cnn that classifies evry static frame in the inputted video. built on top of the VGG16 network trained on ImageNet
 """
-
+import keras
 from keras.models import Sequential
 from keras.layer import Activation, Dropout, Flatten, Dense
 from keras.applications.vgg16 import VGG16

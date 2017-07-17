@@ -5,7 +5,7 @@ import numpy as np
 import pickle
 #This code allows for significant sub sampling of the dataset for multiplicative training data.
 '''
-path = 'F:\Leisure\TV Series\Mr.Robot\Season 2\Mr.Robot.S02E01.720p.WEBRip.AAC2.0.H.264-KNiTTiNG[ettv]'
+path = 'F:\Leisure\TV Series\Mr.Robot\Season 2\Episode 1'
 
 files = [i for i in os.listdir(path) if os.path.isfile(os.path.join(path,i)) and 'Mr' in i]
 #print(files)
@@ -49,12 +49,12 @@ for data in ann_data:
                 #video parameters which are diffrenr for every video :(
                 cap.set(1,i) 
                 ret, frm = cap.read() 
-                gray = cv2.cvtColor(frm, cv2.COLOR_BGR2GRAY)
-                gray = cv2.resize(gray, (224, 224))
-                pic.append(gray)
+                gray = cv2.cvtColor(frm, cv2.COLOR_BGR2GRAY) #Converts frame from Color to Grayscale
+                gray = cv2.resize(gray, (224, 224)) #Resizing the frame
+                pic.append(gray) #Appending to pickle vector
                 A = np.array(pic)
                 #saves in path_pickle
-                #I havent classified pickles according to lables yet, will do once this works
+                #Creates Pickle for saving data
                  pickle.dump(A, open(path_pickle + "/" + str(counter) + ".p", "wb"))    
             m = m + 24
             n = m + 168

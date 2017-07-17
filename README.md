@@ -1,6 +1,6 @@
 # TwoWayConvNet
 
-Contributors: Sree Harsha Nelaturu, Rohan Pooniwala, Sourav Sharan and Aparna Krishnakumar
+Contributors: Sree Harsha Nelaturu, Aparna Krishnakumar, Rohan Pooniwala and Sourav Sharan. 
 
 Implementation of the research paper  "Two-Stream Convolutional Networks for Action Recognition in Videos " https://arxiv.org/pdf/1406.2199.pdf 
 

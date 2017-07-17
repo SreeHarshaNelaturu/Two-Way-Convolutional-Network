@@ -1,4 +1,4 @@
-# TwoWayConvNet
+# Action Recognition Convolutional Neural Network
 
 Contributors: Sree Harsha Nelaturu, Aparna Krishnakumar, Rohan Pooniwala and Sourav Sharan. 
 

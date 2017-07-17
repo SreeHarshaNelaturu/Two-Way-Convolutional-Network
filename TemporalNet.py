@@ -32,7 +32,7 @@ def get_optical_flow(fname, category):
             videoflow.append(flow) #appending the flow vector to the matrix
         else:
             break
-        array1 = np.concatenate(videoflow, axis=-1) #Stacking the flow vectors in a manner to generate a continuous action recognition           sequence, in manner described in the paper
+        array1 = np.concatenate(videoflow, axis=-1) #Stacking the flow vectors in a manner to generate a continuous action recognition sequence, in manner described in the paper
     #print(array1.shape)
     #print(len(array1), len(data[0]), len(data[0][0]), len(data[0][0][0]))
     #print(array1.T.shape)

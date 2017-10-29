@@ -30,7 +30,7 @@ def get_frame(fname, category):
  return arr1
 
 
-cat=["carcrash", "fight", "gun"]#list of categories for classification
+cat=["carcrash", "fight", "gun","theft"]#list of categories for classification
 X=[]
 y_train=[]
 
@@ -44,7 +44,7 @@ for cat in category:#loops the categories in the category list
   X.append(temp)#X now is the input for the CNN
 
 """
-The below loop intializes the y values for all the values in the X matrix as per their their categories
+The below loop intializes the y values for all the values in the X matrix as per their their categories/ classifications
 """
 for category in cat:
     counter += 1
@@ -82,4 +82,4 @@ top_model.compile(optimizer='Adadelta',
 
 #fitting data to the model as per the parameters of the paper
 top_model.fit( x_train, y_train, batch_size=256, epochs=50,validation_split=0.0, validation_data=None, shuffle=True, class_weight=None, sample_weight=None, initial_epoch=0)
-top_model.save('spatial_cnn.h5')#saving the weights obtained from the model
+top_model.save('spatialcnn.h5')#saving the weights obtained from the model
